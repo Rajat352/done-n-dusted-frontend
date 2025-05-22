@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-landingHeaderDark: oklch(29.75% 0.040 305.89);
+    --color-landingHeaderLight: oklch(85.11% 0.047 352.45);
+    --color-landingTextDark: oklch(85.41% 0.028 314.67);
+    --color-landingTextLight: oklch(46.03% 0.067 312.62);
+    --color-landingMainDark: oklch(41.52% 0.044 312.62);
+    --color-landingMainLight: oklch(94.49% 0.030 359.50);
+}
