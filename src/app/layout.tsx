@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import type { Viewport } from "next";
 import "./globals.css";
 import { Julius_Sans_One } from "next/font/google";
-import { Providers } from "./provider";
+import { ThemeContextProvider } from "./providers/ThemeContextProvider";
+import { SessionWrapper } from "./providers/SessionWrapper";
 import NavBar from "@/components/NavBar";
 
 const julius_sans = Julius_Sans_One({
@@ -28,10 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={julius_sans.className} suppressHydrationWarning>
       <body className="h-screen flex flex-col">
-        <Providers>
-          <NavBar />
-          {children}
-        </Providers>
+        <ThemeContextProvider>
+          <SessionWrapper>
+            <NavBar />
+            {children}
+          </SessionWrapper>
+        </ThemeContextProvider>
       </body>
     </html>
   );

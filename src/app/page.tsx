@@ -1,4 +1,6 @@
-export default function Home() {
+import AuthHandler from "@/components/AuthHandler";
+
+export default async function Home() {
   return (
     <div className="h-full flex flex-col">
       <header className="bg-landingHeaderLight dark:bg-landingHeaderDark py-16 sm:py-20 md:py-24 flex flex-col items-center justify-center">
@@ -31,7 +33,7 @@ export default function Home() {
           A simple and minimal To-Do List app which can also let you know the
           ways to get the task done.
         </div>
-        <button>Sign In With Google</button>
+        <AuthHandler />
       </main>
     </div>
   );

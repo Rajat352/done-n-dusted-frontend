@@ -8,4 +8,6 @@
     --color-landingTextLight: oklch(46.03% 0.067 312.62);
     --color-landingMainDark: oklch(41.52% 0.044 312.62);
     --color-landingMainLight: oklch(94.49% 0.030 359.50);
+    --color-landingSignInButtonDark: oklch(21.85% 0.017 312.79); 
+    --color-landingSignInButtonLight: oklch(97.85% 0.011 3.49); 
 }
