@@ -1,4 +1,6 @@
 import { SyncUserData } from "@/types/auth";
+import { cookies } from "next/headers";
+import parseAndSetCookie from "./parseAndSetCookie";
 
 export default async function syncUser(userData: SyncUserData) {
   try {
@@ -16,6 +18,10 @@ export default async function syncUser(userData: SyncUserData) {
     }
 
     console.log("User synced successfully!");
+    const setCookieHeader = response.headers.getSetCookie();
+
+    await parseAndSetCookie(setCookieHeader[0]);
+
     return { success: true };
   } catch (error) {
     console.error(

@@ -27,7 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={julius_sans.className} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${julius_sans.className} antialiased`}
+      suppressHydrationWarning
+    >
       <body className="h-screen flex flex-col">
         <ThemeContextProvider>
           <SessionWrapper>
