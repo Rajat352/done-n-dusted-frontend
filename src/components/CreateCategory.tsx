@@ -87,7 +87,7 @@ export default function CreateCategory({
           <button
             type="submit"
             disabled={isSubmitting || !name.trim()}
-            className="dark:bg-landingSignInButtonDark bg-landingSignInButtonLight w-auto rounded hover:cursor-pointer p-1"
+            className="dark:bg-landingSignInButtonDark bg-landingSignInButtonLight w-auto rounded hover:cursor-pointer p-1 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isSubmitting ? "Creating..." : "Proceed"}
           </button>

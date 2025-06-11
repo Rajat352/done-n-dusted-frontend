@@ -18,6 +18,7 @@ export function SideBar({ isOpen, onClose }: SideBarProps) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [errorFetchingCategories, setErrorFetchingCategories] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [createCategoryClick, setCreateCategoryClick] = useState(false);
 
   async function getCategorties() {
     try {
@@ -44,7 +45,14 @@ export function SideBar({ isOpen, onClose }: SideBarProps) {
   }, []);
 
   const refreshCategories = () => {
+    if (createCategoryClick) {
+      setCreateCategoryClick(false);
+    }
     getCategorties();
+  };
+
+  const handleClickNewCategory = () => {
+    setCreateCategoryClick(true);
   };
 
   if (isLoading) {
@@ -85,6 +93,10 @@ export function SideBar({ isOpen, onClose }: SideBarProps) {
     return <CreateCategory onCategoryCreated={refreshCategories} />;
   }
 
+  if (createCategoryClick) {
+    return <CreateCategory onCategoryCreated={refreshCategories} />;
+  }
+
   return (
     <>
       {/* Desktop Sidebar */}
@@ -114,6 +126,13 @@ export function SideBar({ isOpen, onClose }: SideBarProps) {
               to try again
             </div>
           )}
+
+          <button
+            className="mb-20 rounded-2xl bg-landingSignInButtonLight dark:bg-landingSignInButtonDark p-2 hover:cursor-pointer"
+            onClick={() => handleClickNewCategory()}
+          >
+            Create new Category
+          </button>
         </div>
       </div>
 
@@ -148,6 +167,10 @@ export function SideBar({ isOpen, onClose }: SideBarProps) {
               to try again
             </div>
           )}
+
+          <button className="mb-20 rounded-2xl bg-landingSignInButtonLight dark:bg-landingSignInButtonDark p-2">
+            Create new Category
+          </button>
         </div>
       </div>
     </>
